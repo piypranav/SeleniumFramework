@@ -29,7 +29,7 @@ public class LoginPageTests extends BaseClass {
         wait = new WebDriverWait(driver, 15);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void userLoginTest() {
         wait.until(ExpectedConditions.visibilityOf(
                 driver.findElement(By.xpath("//form[contains(@name, 'register')]"))));
@@ -37,7 +37,7 @@ public class LoginPageTests extends BaseClass {
                 "Not able to log-in to the Home Page");
     }
 
-    @Test(dataProvider = "ExcelSheetData", dataProviderClass = ExcelData.class)
+    @Test(enabled = false, dataProvider = "ExcelSheetData", dataProviderClass = ExcelData.class)
     public void getDataFromExcel(Object[] oExcelData) {
         for(Object data: oExcelData) {
             System.out.println("Data from excel sheet is: " + data.toString());
