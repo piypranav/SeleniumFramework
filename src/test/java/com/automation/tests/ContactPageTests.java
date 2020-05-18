@@ -28,16 +28,12 @@ public class ContactPageTests extends BaseClass {
         loginPage = new LoginPage();
     }
 
-    @Test(enabled = true)
-    public void loginHomePage() {
+    @Test(enabled = true, dependsOnMethods = "loginHomePage")
+    public void checkContactPageTest() {
         wait.until(ExpectedConditions.visibilityOf(
                 driver.findElement(By.xpath("//form[contains(@name, 'register')]"))));
         Assert.assertTrue(loginPage.userLoginToSite(),
                 "Not able to login to the application");
-    }
-
-    @Test(enabled = true, dependsOnMethods = "loginHomePage")
-    public void checkContactPage() {
         Assert.assertTrue(contactPage.userContactPage(),
                 "Contact page not accessible");
     }

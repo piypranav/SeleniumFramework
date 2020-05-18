@@ -30,4 +30,5 @@ public class LoginPage extends BaseClass{
             return false;
         }
     }
+
 }
