@@ -2,7 +2,6 @@ package com.automation.utilities;
 
 import com.automation.commons.BaseClass;
 import org.apache.commons.io.FileUtils;
-import org.jsoup.Connection;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

@@ -1,22 +1,14 @@
 package com.automation.commons;
 
+import com.automation.utilities.ExtentReporterNG;
 import com.automation.utilities.TestUtil;
 import com.automation.utilities.WebEventListerner;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.events.WebDriverEventListener;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +18,7 @@ public class BaseClass {
     public static Properties properties;
     public static WebEventListerner driverListener;
     public static EventFiringWebDriver webDriverEvent;
+    public ExtentReporterNG extentReport;
 
     public String sSystemPath;
 //    public WebDriverWait wait;
@@ -57,6 +50,7 @@ public class BaseClass {
             System.out.println("No property file found, not able to get bowser");
         }
 //        wait = new WebDriverWait(driver, 15);
+        extentReport = new ExtentReporterNG();
         webDriverEvent = new EventFiringWebDriver(driver);
         driverListener = new WebEventListerner();
         webDriverEvent.register(driverListener);
